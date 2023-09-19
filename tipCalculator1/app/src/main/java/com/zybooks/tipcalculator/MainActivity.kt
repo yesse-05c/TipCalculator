@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.view.View
+import android.widget.Toast
 import org.w3c.dom.Text
+import java.lang.NumberFormatException
 import java.time.temporal.TemporalAmount
 
 class MainActivity : AppCompatActivity() {
@@ -31,21 +33,34 @@ class MainActivity : AppCompatActivity() {
 
     fun calculateTip(view : View){
 
-        //Get input
-        val billStr = billAmount.text.toString()
-        val tipStr = tipAmount.text.toString()
-        val howManyStr = howManyPeople.text.toString()
+        try{
+            //Get input
+            val billStr = billAmount.text.toString()
+            val tipStr = tipAmount.text.toString()
+            val howManyStr = howManyPeople.text.toString()
 
-        //Convert string to number and verified if not null or assign 0
-        val bill = billStr.toDoubleOrNull() ?: 0.00
-        val tipPercentage = tipStr.toDoubleOrNull() ?: 10.00
-        val howMany = howManyStr.toIntOrNull() ?: 1
+            //Convert string to number and verified if not null or assign 0
+            val bill = billStr.toDoubleOrNull() ?: 0.00
+            val tipPercentage = tipStr.toIntOrNull() ?: 10
+            val howMany = howManyStr.toIntOrNull() ?: 1
 
-        val tipCalc = (tipPercentage * bill / 100).toDouble()
-        val totalAmount = tipCalc + bill
+            val calc = tipCalculator(bill, tipPercentage, howMany)
+            val totalAmount = calc.TotalAmount
+            val eachAmount = calc.splitAmount
+            val eachTip = calc.splitTipAMount
 
-        totalPayTextView.text = String.format("$%.2f",totalAmount)
-        splitAmountTextView.text = String.format("$%.2f", totalAmount / howMany)
-        splitTipTextView.text = String.format("$%.2f", tipCalc / howMany)
+            val totalText = getString(R.string.total_num, totalAmount)
+            val totalSplitText = getString(R.string.totalSplit_num, eachAmount)
+            val tipSplitText = getString(R.string.tipSplit_num, eachTip)
+
+            totalPayTextView.text = totalText
+            splitAmountTextView.text = totalSplitText
+            splitTipTextView.text = tipSplitText
+
+        }catch(e : NumberFormatException){
+            Toast.makeText(this,"Invalid Input", Toast.LENGTH_SHORT).show()
+        }
+
+
     }
 }
