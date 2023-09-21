@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_background"
     android:orientation="vertical"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
@@ -44,7 +45,8 @@
         android:text="@string/bill_amount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/enterBill"
@@ -57,7 +59,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AmountTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/AmountTextView"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -71,7 +74,8 @@
         app:layout_constraintBottom_toTopOf="@+id/enterTip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterBill" />
+        app:layout_constraintTop_toBottomOf="@+id/enterBill"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/enterTip"
@@ -82,7 +86,8 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -92,7 +97,8 @@
         android:text="@string/split"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterTip" />
+        app:layout_constraintTop_toBottomOf="@+id/enterTip"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/enterSplit"
@@ -100,12 +106,13 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:ems="8"
-        android:hint="0"
+        android:hint="Enter split number"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -116,7 +123,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/amountPayLabel" />
+        app:layout_constraintTop_toBottomOf="@id/amountPayLabel"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/totalSplitLabel"
@@ -128,7 +136,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        android:textStyle="bold"
+        android:textColor="@color/red"/>
 
     <TextView
         android:id="@+id/textView8"
@@ -140,7 +150,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipSplitLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/tipSplitLabel"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/tipSplitLabel"
@@ -152,7 +163,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:textStyle="bold"
+        android:textColor="@color/red"/>
 
     <TextView
         android:id="@+id/TotalLabel"
@@ -164,7 +177,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterSplit" />
+        app:layout_constraintTop_toBottomOf="@+id/enterSplit"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/amountPayLabel"
@@ -175,6 +189,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TotalLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/TotalLabel"
+        android:textStyle="bold"
+        android:textColor="@color/red"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,16 +33,27 @@ class MainActivity : AppCompatActivity() {
 
     fun calculateTip(view : View){
 
-        try{
-            //Get input
-            val billStr = billAmount.text.toString()
-            val tipStr = tipAmount.text.toString()
-            val howManyStr = howManyPeople.text.toString()
+        //Get input
+        val billStr = billAmount.text.toString()
+        val tipStr = tipAmount.text.toString()
+        val howManyStr = howManyPeople.text.toString()
 
+        //Checking for empty or invalid input
+        if(billStr.isEmpty() || tipStr.isEmpty() || howManyStr.isEmpty()){
+            Toast.makeText(this,"Please fill in the fields", Toast.LENGTH_SHORT).show()
+        }
+
+        try {
             //Convert string to number and verified if not null or assign 0
-            val bill = billStr.toDoubleOrNull() ?: 0.00
-            val tipPercentage = tipStr.toIntOrNull() ?: 10
-            val howMany = howManyStr.toIntOrNull() ?: 1
+            val bill = billStr.toDouble()
+            val tipPercentage = tipStr.toInt()
+            val howMany = howManyStr.toInt()
+
+            //Input validation check
+            if (bill < 0 || tipPercentage < 0 || howMany <= 0){
+                Toast.makeText(this,"Invalid input. Enter positive values", Toast.LENGTH_SHORT).show()
+                return
+            }
 
             val calc = tipCalculator(bill, tipPercentage, howMany)
             val totalAmount = calc.TotalAmount
@@ -56,11 +67,8 @@ class MainActivity : AppCompatActivity() {
             totalPayTextView.text = totalText
             splitAmountTextView.text = totalSplitText
             splitTipTextView.text = tipSplitText
-
-        }catch(e : NumberFormatException){
-            Toast.makeText(this,"Invalid Input", Toast.LENGTH_SHORT).show()
+        }catch (e : NumberFormatException){
+            Toast.makeText(this,"Invalid input. Enter valid numbers", Toast.LENGTH_SHORT).show()
         }
-
-
     }
 }
