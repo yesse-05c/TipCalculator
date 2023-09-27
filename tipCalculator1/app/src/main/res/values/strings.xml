@@ -12,4 +12,7 @@
     <string name="total_num"> %.2f </string>
     <string name="tipSplit_num"> %.2f</string>
     <string name="totalSplit_num"> %.2f </string>
+    <string name="dollaSIgn">$</string>
+    <string name="percentSign">%</string>
+    <string name="enter_split_number">Enter split number</string>
 </resources>

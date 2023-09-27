@@ -3,5 +3,13 @@
     <style name="Base.Theme.TipCalculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorBackground">#FF016A70</item>
+        <item name="android:textColor">#FFF1EFEF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:editTextColor">#FFFFF5E0</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">Roboto</item>
     </style>
 </resources>
